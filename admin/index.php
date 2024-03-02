@@ -83,6 +83,7 @@
 
   <footer>All rights reserved &copy; 2024 | Designed & Developed By Sonux Technologies</footer>
 </body>
+
 <script>
 	 window.start_load = function(){
     $('body').prepend('<div id="preloader2"></div>')

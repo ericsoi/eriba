@@ -1,3 +1,4 @@
+<?php include 'admin/db_connect.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,13 +81,18 @@
       <h1>Welcome to <span>ERIBA Ventures</span></h1>
       <h2></h2>
       <div class="d-flex">
-        <a href="apply.php" class="btn-get-started scrollto">Get Started</a>
+        <div class="col-lg-6 form-group">
+          <form action="processing/handle_apply.php" method="post">
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter Phone Number" required>
+            <button  class="btn-get-started scrollto" type="submit" id="new_application">Apply</button>
+          </form>  
+        </div>
+        <!-- <a href="#about" class="btn-get-started scrollto">Get Started</a> -->
       </div>
     </div>
   </section><!-- End Hero -->
 
   <main id="main">
-    <!-- ======= Contact Section ======= --> 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -120,7 +126,16 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script>
+    // Check if the GET variable is set
+    const urlParams = new URLSearchParams(window.location.search);
+    const inputValue = urlParams.get('number');
 
+    // If the GET variable is set, update the input value
+    if (inputValue !== null) {
+        document.getElementById('phone').value = inputValue;
+    }
+</script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
